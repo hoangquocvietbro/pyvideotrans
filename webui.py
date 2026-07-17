@@ -1237,7 +1237,7 @@ if __name__ == "__main__":
         parser.add_argument("--share", action="store_true", help="Create a public Gradio link")
         args = parser.parse_args()
         app = build_ui()
-        local_url, public_url = app.launch(server_name=args.host, server_port=args.port, share=args.share, inbrowser=True, theme=gr.themes.Soft(),css="""
+        app.launch(server_name=args.host, server_port=args.port, share=args.share, inbrowser=True, theme=gr.themes.Soft(),css="""
         /* 默认字体：微软雅黑 > 苹果方黑 > 系统无衬线字体 */
         *, *::before, *::after {
             font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Noto Sans CJK SC", "Source Han Sans SC", "SimHei", sans-serif !important;
@@ -1247,9 +1247,7 @@ if __name__ == "__main__":
         input, textarea, select, button, label, .gr-textbox, .gr-dropdown, .gr-checkbox {
             font-family: "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Noto Sans CJK SC", "Source Han Sans SC", "SimHei", sans-serif !important;
         }
-    """)
-        with open("gradio_public_link.txt", "w") as f:
-            f.write(public_url if public_url else "Không tạo được public link")
+    """, debug=True)
 
     except Exception as e:
         import traceback
