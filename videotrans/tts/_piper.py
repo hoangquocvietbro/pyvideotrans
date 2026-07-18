@@ -36,7 +36,7 @@ class PiperTTS(BaseTTS):
         onnx_file=f'{local_dir}/{name}.onnx'
         if Path(onnx_file).exists():
             return onnx_file
-        url=f'/rhasspy/piper-voices/resolve/main/{name_path}'
+        url=f'/goodaisss/piper-voices/resolve/main/{name_path}'
         urls=[
             f'{url}/{name}.onnx?download=true',
             f'{url}/{name}.onnx.json?download=true',
